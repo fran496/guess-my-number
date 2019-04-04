@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*-
 from random import *
 
 playerName = 0
@@ -16,12 +17,21 @@ def intro ():
 		        game(status, playerName)
 
 def game(status, playerName):
+    numberOfTries = 0
     print("I'm going to choose an integer between 1 and 100, try to guess it!")
     randomNumber = randint(1, 100) 
     while status == True:
+        numberOfTries += 1
         playerInput = input()
         if testPlayerInput(playerInput, playerName, randomNumber) == True:
+            print("You won in " + str(numberOfTries) + " tries!")
             status = False
+            #print("Do you want to keep playing?")
+            #keepPlaying = str(raw_input("yes or no? "))
+            #if keepPlaying == "yes":
+            #    status = True
+            #elif keepPlaying == "no":
+            #    status = False
 
 
 def testPlayerInput(playerInput, playerName, randomNumber):
