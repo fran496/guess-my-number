@@ -19,20 +19,20 @@ def game(status, playerName):
     print("I'm going to choose an integer between 1 and 100, try to guess it!")
     randomNumber = randint(1, 100) 
     while status == True:
-        print("NEW GAME")
         playerInput = input()
-        testPlayerInput(playerInput, playerName, randomNumber)
+        if testPlayerInput(playerInput, playerName, randomNumber) == True:
+            status = False
 
 
 def testPlayerInput(playerInput, playerName, randomNumber):
     if playerInput == randomNumber:
         print("YOU WIN " + playerName + "!")
-        return
+        return True
     elif playerInput < randomNumber:
         print("THAT'S NOT IT! Guess higher!")
-        return
+        return False
     elif playerInput > randomNumber:
         print("THAT'S NOT IT! Guess lower!")
-        return
+        return False
 
 intro()
