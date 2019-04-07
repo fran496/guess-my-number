@@ -14,20 +14,25 @@ def intro ():
 
 def game(status, playerName):
     numberOfTries = 0
+    numberOfWins = 0
     randomNumber = randint(1, 100) 
     print("I'm going to choose an integer between 1 and 100, try to guess it!")
     while status == True:
         numberOfTries += 1
         playerInput = input()
-        if testPlayerInput(playerInput, playerName, randomNumber) == True:
+        if testPlayerInput(playerInput, playerName, randomNumber):
             print("You won in " + str(numberOfTries) + " tries!")
-            status = False
-            #print("Do you want to keep playing?")
-            #keepPlaying = str(raw_input("yes or no? "))
-            #if keepPlaying == "yes":
-            #    status = True
-            #elif keepPlaying == "no":
-            #    status = False
+            #status = False
+            print("Do you want to keep playing?")
+            keepPlaying = str(raw_input("yes or no? "))
+            if keepPlaying == "yes":
+               numberOfWins += 1
+               status = True
+               if numberOfWins > 1:
+                   print("You've won " + str(numberOfWins) + " times in a row!")
+               game(status, playerName)
+            elif keepPlaying == "no":
+               status = False
 
 
 def testPlayerInput(playerInput, playerName, randomNumber):
