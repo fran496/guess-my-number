@@ -1,10 +1,6 @@
  # -*- coding: utf-8 -*-
 from random import *
 
-playerName = 0
-randomNumber = 0
-status = 0
-
 def intro ():
     status = False
     playerName = str(raw_input("Hello! What's your name? "))
@@ -18,8 +14,8 @@ def intro ():
 
 def game(status, playerName):
     numberOfTries = 0
-    print("I'm going to choose an integer between 1 and 100, try to guess it!")
     randomNumber = randint(1, 100) 
+    print("I'm going to choose an integer between 1 and 100, try to guess it!")
     while status == True:
         numberOfTries += 1
         playerInput = input()
